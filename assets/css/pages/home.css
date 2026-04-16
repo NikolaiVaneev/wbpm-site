@@ -7,18 +7,33 @@
 }
 
 .hero__content {
-    padding: 56px;
+    position: relative;
+    overflow: hidden;
+    padding: 64px;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
     background:
-        radial-gradient(circle at top right, rgba(242, 201, 76, 0.28), transparent 32%),
+        radial-gradient(circle at top right, rgba(242, 201, 76, 0.30), transparent 30%),
+        radial-gradient(circle at bottom left, rgba(242, 201, 76, 0.10), transparent 28%),
         var(--color-surface);
     box-shadow: var(--shadow-soft);
 }
 
+.hero__content::after {
+    content: "";
+    position: absolute;
+    right: -120px;
+    bottom: -120px;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(242, 201, 76, 0.18), transparent 70%);
+    pointer-events: none;
+}
+
 .hero__eyebrow {
     display: inline-block;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
     padding: 8px 14px;
     border-radius: var(--radius-pill);
     background: var(--color-surface-soft);
@@ -28,16 +43,16 @@
 }
 
 .hero__title {
-    max-width: 900px;
+    max-width: 980px;
     margin-bottom: 20px;
-    font-size: clamp(42px, 7vw, 84px);
-    line-height: 0.95;
+    font-size: clamp(42px, 7vw, 86px);
+    line-height: 0.94;
     letter-spacing: -0.04em;
 }
 
 .hero__text {
     max-width: 760px;
-    margin-bottom: 28px;
+    margin-bottom: 30px;
     color: var(--color-text-muted);
     font-size: 20px;
 }
@@ -48,9 +63,154 @@
     flex-wrap: wrap;
 }
 
+#opc .cards-grid,
+#about .cards-grid,
+#projects .cards-grid {
+    align-items: stretch;
+}
+
+#opc .card,
+#about .card,
+#projects .card,
+#how .step-card {
+    height: 100%;
+    transition:
+        transform var(--transition-base),
+        box-shadow var(--transition-base),
+        border-color var(--transition-base);
+}
+
+#opc .card:hover,
+#about .card:hover,
+#projects .card:hover,
+#how .step-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 44px rgba(0, 0, 0, 0.08);
+    border-color: #d1c6b5;
+}
+
+#opc {
+    position: relative;
+}
+
+#opc::before {
+    content: "";
+    position: absolute;
+    inset: 32px 0 auto;
+    height: 220px;
+    background: linear-gradient(
+        180deg,
+        rgba(242, 201, 76, 0.10),
+        rgba(242, 201, 76, 0)
+    );
+    pointer-events: none;
+}
+
+#opc .container,
+#about .container,
+#projects .container,
+#how .container,
+#contacts .container {
+    position: relative;
+    z-index: 1;
+}
+
+#opc .section-head__title,
+#about .section-head__title,
+#projects .section-head__title,
+#how .section-head__title,
+#contacts .section-head__title {
+    max-width: 900px;
+}
+
+#about {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(242, 236, 223, 0.45)),
+        transparent;
+}
+
+#about .card__title,
+#projects .card__title,
+#how .step-card__title {
+    line-height: 1.1;
+}
+
+#projects .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 240px;
+}
+
+#projects .card::before {
+    content: "";
+    display: block;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 18px;
+    border-radius: 14px;
+    background: var(--color-surface-soft);
+}
+
+#how .steps {
+    counter-reset: how-steps;
+}
+
+#how .step-card {
+    position: relative;
+    min-height: 220px;
+}
+
+#how .step-card__index {
+    margin-bottom: 18px;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+#contacts {
+    position: relative;
+    overflow: hidden;
+}
+
+#contacts::before {
+    content: "";
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(242, 201, 76, 0.22), transparent 70%);
+    pointer-events: none;
+}
+
+#contacts .contact-form {
+    max-width: 880px;
+}
+
+#contacts .input,
+#contacts .textarea {
+    transition:
+        border-color var(--transition-base),
+        box-shadow var(--transition-base),
+        background-color var(--transition-base);
+}
+
+#contacts .input:focus,
+#contacts .textarea:focus {
+    border-color: #cfb15a;
+    box-shadow: 0 0 0 4px rgba(242, 201, 76, 0.18);
+    background: #fffefa;
+}
+
+#contacts .form-note {
+    max-width: 420px;
+}
+
 @media (max-width: 900px) {
     .hero__content {
-        padding: 32px 24px;
+        padding: 36px 24px;
     }
 
     .hero__title {
@@ -59,5 +219,32 @@
 
     .hero__text {
         font-size: 18px;
+    }
+
+    #projects .card,
+    #how .step-card {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero {
+        padding-top: 28px;
+    }
+
+    .hero__content {
+        padding: 28px 20px;
+    }
+
+    .hero__actions {
+        flex-direction: column;
+    }
+
+    .hero__actions .btn {
+        width: 100%;
+    }
+
+    .section-head__title {
+        margin-bottom: 10px;
     }
 }
