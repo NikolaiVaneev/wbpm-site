@@ -49,11 +49,7 @@ export function initMenu() {
             const isExpanded =
                 mobileServicesToggle.getAttribute("aria-expanded") === "true";
 
-            mobileServicesToggle.setAttribute(
-                "aria-expanded",
-                String(!isExpanded)
-            );
-
+            mobileServicesToggle.setAttribute("aria-expanded", String(!isExpanded));
             mobileServicesPanel.classList.toggle("is-open", !isExpanded);
         });
     }
