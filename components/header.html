@@ -1,35 +1,106 @@
 <header class="site-header">
     <div class="container site-header__container">
-        <a class="site-logo" href="/index.html">WBPM</a>
+        <a class="site-logo" href="/index.html" aria-label="ВБ Трейд - на главную">
+            <img src="/assets/images/logo.svg" alt="ВБ Трейд" width="166" height="32">
+        </a>
 
         <nav class="site-nav" aria-label="Основная навигация">
             <ul class="site-nav__list">
-                <li><a href="/index.html#opc">OnePlaceCollection</a></li>
-                <li><a href="/index.html#about">О нас</a></li>
-                <li><a href="/index.html#projects">Кейсы</a></li>
-                <li><a href="/index.html#how">Как мы работаем</a></li>
-                <li><a href="/pages/blog/index.html">Блог</a></li>
-                <li><a href="/index.html#contacts">Контакты</a></li>
+                <li>
+                    <a href="#opc" class="site-nav__link site-nav__link--opc">
+                        <span>Единая платформа взыскания /</span>
+                        <small>OnePlaceCollection</small>
+                    </a>
+                </li>
+
+                <li><a href="#about" class="site-nav__link">О нас</a></li>
+
+                <li class="site-nav__item site-nav__item--dropdown">
+                    <button
+                        class="site-nav__dropdown-toggle"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="services-dropdown"
+                    >
+                        Услуги
+                        <span class="site-nav__chevron" aria-hidden="true"></span>
+                    </button>
+
+                    <ul class="site-nav__dropdown" id="services-dropdown">
+                        <li><a href="https://wbpm.ru/process-analysis/" target="_blank" rel="noopener noreferrer">Процессная аналитика</a></li>
+                        <li><a href="https://wbpm.ru/business-analysis/" target="_blank" rel="noopener noreferrer">Бизнес-анализ</a></li>
+                        <li><a href="https://wbpm.ru/software-development/" target="_blank" rel="noopener noreferrer">Разработка ПО</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="#how" class="site-nav__link">Как мы работаем</a></li>
+                <li><a href="https://wbpm.ru/blog/" class="site-nav__link" target="_blank" rel="noopener noreferrer">Блог</a></li>
+                <li><a href="#contacts" class="site-nav__link">Контакты</a></li>
             </ul>
         </nav>
 
-        <a class="btn btn--accent site-header__cta" href="/index.html#contacts">Связаться</a>
+        <a class="btn btn--accent site-header__cta" href="#contacts">Связаться с нами</a>
 
-        <button class="burger" type="button" id="burger-button" aria-label="Открыть меню">
-            <span></span>
+        <button
+            class="burger"
+            id="burger-button"
+            type="button"
+            aria-label="Открыть меню"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+        >
             <span></span>
             <span></span>
         </button>
     </div>
 
-    <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
         <div class="container mobile-menu__container">
-            <a href="/index.html#opc">OnePlaceCollection</a>
-            <a href="/index.html#about">О нас</a>
-            <a href="/index.html#projects">Кейсы</a>
-            <a href="/index.html#how">Как мы работаем</a>
-            <a href="/pages/blog/index.html">Блог</a>
-            <a href="/index.html#contacts">Контакты</a>
+            <div class="mobile-menu__head">
+                <a class="site-logo" href="/index.html" aria-label="ВБ Трейд - на главную">
+                    <img src="/assets/images/logo.svg" alt="ВБ Трейд" width="166" height="32">
+                </a>
+
+                <button
+                    class="mobile-menu__close"
+                    id="mobile-menu-close"
+                    type="button"
+                    aria-label="Закрыть меню"
+                >
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+            <nav class="mobile-menu__nav" aria-label="Мобильная навигация">
+                <a href="#opc">Единая платформа взыскания / OnePlaceCollection</a>
+                <a href="#about">О нас</a>
+
+                <div class="mobile-services">
+                    <button
+                        class="mobile-services__toggle"
+                        id="mobile-services-toggle"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="mobile-services-panel"
+                    >
+                        Услуги
+                        <span class="site-nav__chevron" aria-hidden="true"></span>
+                    </button>
+
+                    <div class="mobile-services__panel" id="mobile-services-panel">
+                        <a href="https://wbpm.ru/process-analysis/" target="_blank" rel="noopener noreferrer">Процессная аналитика</a>
+                        <a href="https://wbpm.ru/business-analysis/" target="_blank" rel="noopener noreferrer">Бизнес-анализ</a>
+                        <a href="https://wbpm.ru/software-development/" target="_blank" rel="noopener noreferrer">Разработка ПО</a>
+                    </div>
+                </div>
+
+                <a href="#how">Как мы работаем</a>
+                <a href="https://wbpm.ru/blog/" target="_blank" rel="noopener noreferrer">Блог</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+
+            <a class="btn btn--accent mobile-menu__cta" href="#contacts">Связаться с нами</a>
         </div>
     </div>
 </header>
