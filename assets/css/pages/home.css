@@ -152,10 +152,6 @@
     background: var(--color-surface-soft);
 }
 
-#how .steps {
-    counter-reset: how-steps;
-}
-
 #how .step-card {
     position: relative;
     min-height: 220px;
